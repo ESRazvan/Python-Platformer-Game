@@ -37,7 +37,6 @@ tile_size_dict = {
     2: (20, 20)
 }
 
-
 #map loader
 def load_map(filename):
     with open(filename) as f:
@@ -93,10 +92,6 @@ class MovementState():
 class Player():
     def __init__(self, x, y):
         self.image = player_img
-        #self.walking_right = player_walking_right
-        #self.walking_left = player_walking_left
-        #self.walking_1 = player_walking_1
-        #self.image = pygame.transform.scale(img, (40, 80))
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = x, y
         self.health = 100
@@ -157,7 +152,6 @@ class Player():
         elif velocity < 0:
             velocity += 1
         return velocity
-
     
     def get_keypress(self):
         key = pygame.key.get_pressed()
@@ -298,7 +292,6 @@ class World():
                         self.goal = tile
                     else:
                         self.tile_list.append(tile)
-            
 
     def draw(self):
         for tile in self.tile_list:
@@ -309,12 +302,12 @@ class World():
         if player.rect.colliderect(self.goal[1]):
             return True
 #grid
-def draw_grid():
+"""def draw_grid():
     for line in range(0, 18):
         pygame.draw.line(screen, (1, 0, 0), (0, line * 40), (1280 , line * 40), 1)
         
     for column in range(0, 32):
-        pygame.draw.line(screen, (1, 0, 0), (column * 40, 0), (column * 40, 720), 1)
+        pygame.draw.line(screen, (1, 0, 0), (column * 40, 0), (column * 40, 720), 1)"""
 
 def main_menu():
     click = False
@@ -399,7 +392,6 @@ def next_level_screen():
 
         mx, my = pygame.mouse.get_pos()
         
-
         next_level_button = pygame.Rect(545, 300, 200, 50)
         quit_to_menu_button = pygame.Rect(545, 400, 200, 50)
 
@@ -423,7 +415,6 @@ def next_level_screen():
             if click:
                 return "menu"
                 
-
         click = False
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
