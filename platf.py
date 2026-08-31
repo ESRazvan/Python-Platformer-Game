@@ -301,13 +301,6 @@ class World():
     def next_level(self):
         if player.rect.colliderect(self.goal[1]):
             return True
-#grid
-"""def draw_grid():
-    for line in range(0, 18):
-        pygame.draw.line(screen, (1, 0, 0), (0, line * 40), (1280 , line * 40), 1)
-        
-    for column in range(0, 32):
-        pygame.draw.line(screen, (1, 0, 0), (column * 40, 0), (column * 40, 720), 1)"""
 
 def main_menu():
     click = False
